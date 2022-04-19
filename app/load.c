@@ -7,8 +7,10 @@
  */
 
 #include <stdio.h>
+#include <string.h>
 #include "common.h"
 #include "text/text.h"
+
 
 /**
  * Загружает содержимое указанного файла
@@ -30,6 +32,7 @@ void load(text txt, char *filename)
 
     /* Считываем содержимое строка за строкой */
     while (fgets(buf, MAXLINE, f)) {
+        buf[strlen(buf) - 1] = '\0';
         append_line(txt, buf);
     }
 }

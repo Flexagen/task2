@@ -25,4 +25,14 @@ void show(text txt);
  */
 void load(text txt, char *filename);
 
+void save(text txt, char *filename);
+
+void move_cursor(text txt, int line, int pos);
+
+void showevenbeforodd(text txt);
+
+void mplb(text txt);
+
+void prev_paste(text txt, const char *str_for_input);
+
 #endif

@@ -34,7 +34,6 @@ void process_forward(
     node *current = txt->begin;
     int index = 0;
     int cursor_position = -1;
-    
     /* К каждой строке текста применяем обработчик */
     while (current) {
         if (txt->cursor->line == current) 
