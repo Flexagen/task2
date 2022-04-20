@@ -12,8 +12,6 @@ SOURCES += editor.c \
     text/create_text.c \
     text/process_forward.c \
     text/remove_all.c \
-    mplb.c \
-    prev_paste.c
 
 
 HEADERS += \
