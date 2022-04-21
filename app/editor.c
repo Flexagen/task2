@@ -101,12 +101,21 @@ int main()
 	    continue;
 	}
 
-	/*  */
+	/* Удаление всех символов после курсора в строке с курсором  */
         if (strcmp(cmd, "rle") == 0)
         {
             rle(txt);
+	    show(txt);
             continue;
         }
+
+	/* Перемещение строки с курсором перед предыдущей  */
+        if (strcmp(cmd, "cp") == 0)
+        {
+            cp(txt);
+            continue;
+        }
+
 
         /* Если команда не известна */
         fprintf(stderr, "Unknown command: %s\n", cmd);

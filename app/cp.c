@@ -1,5 +1,5 @@
 /**
- * rle.c -- реализует удаление всех символов от курсора до конца строки
+ * cp.c -- перемещение текущей строки (где стоит курсор) перед предыдущей
  *
  * Павлов Максим 22107
  *
@@ -12,7 +12,7 @@
 #include "text/text.h"
 #include "text/_text.h"
 
-void rle(text txt)
+void cp(text txt)
 {
     /* Проверяем, имеется ли текст */
     if (txt == NULL || txt->length == 0) {
@@ -25,22 +25,38 @@ void rle(text txt)
 
     /* Стартуем с начальной строки текста */
     node *current = txt->begin;
-
+    char s[MAXLINE] = " ";
+    short Flag_error = 0;
     /* Бежим до строки с курсором */
     while (current) {
         if (txt->cursor->line == current) {
-	    unsigned int len_line = strlen(current->contents);
-	    int Flag = 0;
-	    for (unsigned int i = 0; i <= len_line; i++) {
-            	if ((int)i == txt->cursor->position) {
-		    Flag = 1;
-		}
-		if (Flag == 1) {
-		   current->contents[i] = '\0';
-		}
-	    }
-	}
+           if (current != txt->begin) {
+               strcpy(s, current->contents);
+               strcpy(current->contents, current->previous->contents);
+	       strcpy(current->previous->contents, s);
+           }
+           else {
+	       fprintf(stdout, "Can't move a row.\n");
+               Flag_error = 1;
+	       break;
+	   }
+        }
         current = current->next;
     }
-    fprintf(stdout, "Удаление прошло успешно!\n");
+    if (!Flag_error) {
+    	show(txt);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
