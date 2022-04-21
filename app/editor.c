@@ -75,6 +75,7 @@ int main()
             continue;
         }
 
+        /* Перемещение курсора по строкам и символам */
         if (strcmp(cmd, "position") == 0 || strcmp(cmd, "pos") == 0 || strcmp(cmd, "p") == 0)
         {
             if ((arg = strtok(NULL, " \n")) == NULL ||
@@ -91,6 +92,14 @@ int main()
             }
             continue;
         }
+
+	/*  Вывод текста в прямом порядке следования строк без ведущих пробелов */
+	if (strcmp(cmd, "showtrimmedfromstart") == 0 || strcmp(cmd, "swtfs") == 0)
+	{
+	    /* Применяем функцию к каждой строке текста */
+            show_without_tabulation(txt);
+	    continue;
+	}
 
         /* Если команда не известна */
         fprintf(stderr, "Unknown command: %s\n", cmd);

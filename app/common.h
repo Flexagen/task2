@@ -19,6 +19,7 @@
  * Выводит содержимое указанного файла на экран
  */
 void show(text txt);
+void show_without_tabulation(text txt);
 
 /**
  * Загружает содержимое указанного файла
@@ -29,10 +30,5 @@ void save(text txt, char *filename);
 
 void move_cursor(text txt, int line, int pos);
 
-void showevenbeforodd(text txt);
-
-void mplb(text txt);
-
-void prev_paste(text txt, const char *str_for_input);
-
+void rle(text txt);
 #endif
