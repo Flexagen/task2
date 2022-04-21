@@ -101,6 +101,13 @@ int main()
 	    continue;
 	}
 
+	/*  */
+        if (strcmp(cmd, "rle") == 0)
+        {
+            rle(txt);
+            continue;
+        }
+
         /* Если команда не известна */
         fprintf(stderr, "Unknown command: %s\n", cmd);
     }
