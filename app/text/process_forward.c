@@ -18,7 +18,7 @@
 void process_forward(
     text txt,
     void (*process)(int index,const char *contents, int cursor, const void *data),
-    void *data
+    const void *data
 )
 {   
     /* Проверяем, имеется ли текст */

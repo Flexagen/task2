@@ -36,7 +36,7 @@ void append_line(text txt, const char *contents)
     
     /* Устанавливаем курсор в конец добавленной строки */
     txt->cursor->line = txt->end;
-    txt->cursor->position = (int)strlen(txt->end->contents);
+    txt->cursor->position = (int)strnlen(txt->end->contents, strlen(txt->end->contents));
 }
 
 
@@ -54,7 +54,7 @@ static node *create_node(const char *contents)
         exit(EXIT_FAILURE);
     }
     
-    if (strlen(contents) > MAXLINE) {
+    if (strnlen(contents, strlen(contents)) > MAXLINE) {
         fprintf(stderr, "Too long line!\n");
         exit(EXIT_FAILURE);
     }    

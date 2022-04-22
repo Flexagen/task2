@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 6.0.2, 2022-04-21T18:47:56. -->
+<!-- Written by QtCreator 6.0.2, 2022-04-22T18:14:30. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -68,14 +68,13 @@
     <value type="bool" key="AutoTest.Framework.QtTest">true</value>
    </valuemap>
    <valuemap type="QVariantMap" key="AutoTest.CheckStates">
-    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:cursor_pos">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:save">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:suite3">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:sute1">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:sute2">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:sute3">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests_out.h:suite1">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests_out.h:suite2">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:Cursor_position">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:Load_file">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:test1">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:test2">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests_out.h:Save_file">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests_out.h:test1">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests_out.h:test2">Checked</value>
    </valuemap>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
    <value type="bool" key="AutoTest.UseGlobal">true</value>

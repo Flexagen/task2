@@ -1,5 +1,4 @@
 #include "tests.h"
-#include "tests_out.h"
 #include <gtest/gtest.h>
 
 int main(int argc, char *argv[])

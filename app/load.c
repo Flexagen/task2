@@ -32,7 +32,7 @@ void load(text txt, char *filename)
 
     /* Считываем содержимое строка за строкой */
     while (fgets(buf, MAXLINE, f)) {
-        buf[strnlen(buf, strlen(buf)) - 1] = '\0';
+        buf[strnlen(buf, strnlen(buf, strlen(buf))) - 1] = '\0';
         append_line(txt, buf);
     }
 

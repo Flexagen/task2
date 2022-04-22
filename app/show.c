@@ -49,7 +49,7 @@ static void showtrimmedfromstart (int index, const char *contents, int cursor, c
     UNUSED(index);
     UNUSED(data);
 
-    int data_len = (int)strlen(contents) - 1;
+    int data_len = (int)strnlen(contents, strlen(contents)) - 1;
     int len = data_len > cursor ? data_len : cursor;
 
     int flag = 0;
@@ -85,7 +85,7 @@ static void show_line(int index, const char *contents, int cursor, const void *d
     UNUSED(index);
     UNUSED(data);
 
-    int data_len = (int)strlen(contents) - 1;
+    int data_len = (int)strnlen(contents, strlen(contents)) - 1;
     int len = data_len > cursor ? data_len : cursor;
 
     if (cursor != -1)

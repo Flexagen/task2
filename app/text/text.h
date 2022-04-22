@@ -47,7 +47,7 @@ void append_line(text txt, const char *contents);
 void process_forward(
     text txt,
     void (*process)(int index, const char *contents, int cursor_position, const void *data),
-    void *data
+    const void *data
 );
 
 

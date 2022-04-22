@@ -13,7 +13,31 @@ extern "C"{
 #include "common.h"
 }
 
-TEST(cursor_pos, sute2)
+TEST(Load_file, test1)
+{
+    text txt = create_text();
+    load(txt, filename);
+}
+
+TEST (Save_file, test1)
+{
+    text txt = create_text();
+    testing::internal::CaptureStderr();
+    save(txt, "test_save.txt");
+    std::string output = testing::internal::GetCapturedStderr();
+    EXPECT_EQ(output, "The text doesn't exist\n");
+}
+
+TEST (Save_file, test2)
+{
+    text txt = create_text();
+    load(txt, filename);
+    testing::internal::CaptureStderr();
+    save(txt, "test_open.txt");
+    std::string output = testing::internal::GetCapturedStderr();
+}
+
+TEST(Cursor_position, test1)
 {
     text txt = create_text();
     load(txt, filename);
