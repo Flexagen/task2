@@ -5,11 +5,12 @@
 #include<fstream>
 #include<string>
 
-const char* filename1 = "input.txt";
-
+char* filename1 = "input.txt";
+extern "C"{
 #include "text.h"
 #include "_text.h"
 #include "common.h"
+}
 
 TEST (save, suite1)
 {
