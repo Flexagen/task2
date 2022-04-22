@@ -19,7 +19,7 @@ void move_cursor(text txt, int line, int pos)
 
     if (line > 0)
     {
-        int l = txt->length;
+      int l = (int)txt->length;
         if (line > l)
             line = l;
 

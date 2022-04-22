@@ -15,9 +15,9 @@
 #include "text/_text.h"
 
 
-static void show_line(int index, char *contents, int cursor, void *data);
+static void show_line(int index, const char *contents, int cursor,const void *data);
 
-static void showtrimmedfromstart (int index, char *contents, int cursor, void *data);
+static void showtrimmedfromstart (int index, const char *contents, int cursor,const void *data);
 
 /**
  * Выводит содержимое указанного файла на экран
@@ -40,7 +40,7 @@ void show_without_tabulation(text txt)
 /**
  * Выводит содержимое указанного файла на экран без ведущих пробелов и табов.
  */
-static void showtrimmedfromstart (int index, char *contents, int cursor, void *data)
+static void showtrimmedfromstart (int index, const char *contents, int cursor, const void *data)
 {
     /* Функция обработчик всегда получает существующую строку */
     assert(contents != NULL);
@@ -49,7 +49,7 @@ static void showtrimmedfromstart (int index, char *contents, int cursor, void *d
     UNUSED(index);
     UNUSED(data);
 
-    int data_len = strlen(contents) - 1;
+    int data_len = (int)strlen(contents) - 1;
     int len = data_len > cursor ? data_len : cursor;
 
     int flag = 0;
@@ -76,7 +76,7 @@ static void showtrimmedfromstart (int index, char *contents, int cursor, void *d
 /**
  * Выводит содержимое указанного файла на экран
  */
-static void show_line(int index, char *contents, int cursor, void *data)
+static void show_line(int index, const char *contents, int cursor, const void *data)
 {
     /* Функция обработчик всегда получает существующую строку */
     assert(contents != NULL);
@@ -85,7 +85,7 @@ static void show_line(int index, char *contents, int cursor, void *data)
     UNUSED(index);
     UNUSED(data);
 
-    int data_len = strlen(contents) - 1;
+    int data_len = (int)strlen(contents) - 1;
     int len = data_len > cursor ? data_len : cursor;
 
     if (cursor != -1)

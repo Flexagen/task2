@@ -5,13 +5,11 @@
 #include<fstream>
 #include<string>
 
-char* filename1 = "input.txt";
+const char* filename1 = "input.txt";
 
-extern "C"{
 #include "text.h"
 #include "_text.h"
 #include "common.h"
-}
 
 TEST (save, suite1)
 {
@@ -29,7 +27,6 @@ TEST (save, suite2)
     testing::internal::CaptureStderr();
     save(txt, "test_open.txt");
     std::string output = testing::internal::GetCapturedStderr();
-    //EXPECT_EQ(output, "File test_open.txt can't be opened\n");
 }
 
 #endif // TESTS_OUT_H

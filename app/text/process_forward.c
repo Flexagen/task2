@@ -17,7 +17,7 @@
  */
 void process_forward(
     text txt,
-    void (*process)(int index, char *contents, int cursor, void *data),
+    void (*process)(int index,const char *contents, int cursor, const void *data),
     void *data
 )
 {   

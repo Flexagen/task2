@@ -5,13 +5,11 @@
 #include <string>
 #include <fstream>
 
-char *filename = "input.txt";
+const char *filename = "input.txt";
 
-extern "C"{
 #include <text.h>
 #include <_text.h>
 #include <common.h>
-}
 
 TEST(cursor_pos, sute2)
 {
