@@ -183,10 +183,11 @@ TEST(Show_text, test)
     append_line(txt, "Example text in line 1.");
     // подключаем захват вывода
     testing::internal::CaptureStdout();
+    move_cursor(txt, 0, 0);
     show(txt);
     //получаем результат
     std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(output, "Example text in line 1.|\n");
+    EXPECT_EQ(output, "|Example text in line 1.\n");
     remove_all(txt);
 }
 
@@ -212,5 +213,33 @@ TEST(Showtrimmedfromstart, test)
     content[content.length()-1] = '|';
     content += "\n";
     EXPECT_EQ(output, content);
+}
+
+TEST(rle, positive_test)
+{
+    text txt = create_text();
+    append_line(txt, "Example text.");
+    // подключаем захват вывода
+    testing::internal::CaptureStdout();
+    move_cursor(txt, 0, 0);
+    rle(txt);
+    show(txt);
+    //получаем результат
+    std::string output = testing::internal::GetCapturedStdout();
+    EXPECT_EQ(output, "RLE successed!\n|\n");
+    remove_all(txt);
+}
+
+TEST(rle, emply_data)
+{
+    text txt = create_text();
+    // подключаем захват вывода
+    testing::internal::CaptureStderr();
+    rle(NULL);
+    rle(txt);
+    //получаем результат
+    std::string output = testing::internal::GetCapturedStderr();
+    EXPECT_EQ(output, "There are already no any lines in the text!\nThere are already no any lines in the text!\n");
+    remove_all(txt);
 }
 #endif // EQTEST_H

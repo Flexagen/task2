@@ -42,5 +42,5 @@ void rle(text txt)
 	}
         current = current->next;
     }
-    fprintf(stdout, "Удаление прошло успешно!\n");
+    fprintf(stdout, "RLE successed!\n");
 }
