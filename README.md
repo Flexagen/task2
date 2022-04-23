@@ -3,3 +3,4 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Flexagen_task2&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Flexagen_task2)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Flexagen_task2&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Flexagen_task2)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Flexagen_task2&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Flexagen_task2)
+
