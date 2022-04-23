@@ -35,4 +35,9 @@ SUBDIRS += $PWD/input
 
 INCLUDEPATH += ../app
 
+MOC_DIR     += generated/mocs # для файлов moc-компилятора
+UI_DIR      += generated/uis  # для заголовочных файлов форм дизайнера
+RCC_DIR     += generated/rccs # для файлов ресурсов
+OBJECTS_DIR += generated/objs # для объектных файлов
+
 DISTFILES += ../tests/input/input.txt
