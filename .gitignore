@@ -1,4 +1,3 @@
 *.user
 build
 Makefile
-*.o
