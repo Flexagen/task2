@@ -31,8 +31,8 @@ SOURCES += main.cpp \
     ../app/text/create_text.c \
     ../app/text/remove_all.c
 
+SUBDIRS += $PWD/input
 
 INCLUDEPATH += ../app
 
-DISTFILES += \
-    input/input.txt
+DISTFILES += ../tests/input/input.txt

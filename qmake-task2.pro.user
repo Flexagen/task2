@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 6.0.2, 2022-04-22T18:14:30. -->
+<!-- Written by QtCreator 6.0.2, 2022-04-23T09:18:17. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -70,11 +70,10 @@
    <valuemap type="QVariantMap" key="AutoTest.CheckStates">
     <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:Cursor_position">Checked</value>
     <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:Load_file">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:Save_file">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:default_load">Checked</value>
     <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:test1">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:test2">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests_out.h:Save_file">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests_out.h:test1">Checked</value>
-    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests_out.h:test2">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/mpavlov/testing/task2/tests/tests.h:wrong_file_name">Checked</value>
    </valuemap>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
    <value type="bool" key="AutoTest.UseGlobal">true</value>
@@ -85,7 +84,7 @@
     <value type="bool" key="ClangTools.AnalyzeOpenFiles">true</value>
     <value type="bool" key="ClangTools.BuildBeforeAnalysis">true</value>
     <value type="QString" key="ClangTools.DiagnosticConfig">Builtin.DefaultTidyAndClazy</value>
-    <value type="int" key="ClangTools.ParallelJobs">1</value>
+    <value type="int" key="ClangTools.ParallelJobs">3</value>
     <valuelist type="QVariantList" key="ClangTools.SelectedDirs"/>
     <valuelist type="QVariantList" key="ClangTools.SelectedFiles"/>
     <valuelist type="QVariantList" key="ClangTools.SuppressedDiagnostics"/>
@@ -102,10 +101,10 @@
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">qt.qt6.623.gcc_64_kit</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
-   <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
+   <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">1</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/mpavlov/testing/build-qmake-task2-Desktop_Qt_6_2_3_GCC_64bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/mpavlov/testing/task2</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">/home/mpavlov/testing/build-qmake-task2-Desktop_Qt_6_2_3_GCC_64bit-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
@@ -246,6 +245,22 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/mpavlov/testing/task2/app/app.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/mpavlov/testing/task2/app/app.pro</value>
+    <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/mpavlov/testing/task2/app</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.1">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/mpavlov/testing/task2/tests/tests.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/mpavlov/testing/task2/tests/tests.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
@@ -253,9 +268,9 @@
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/mpavlov/testing/build-qmake-task2-Desktop_Qt_6_2_3_GCC_64bit-Debug/tests</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/mpavlov/testing/task2/tests</value>
    </valuemap>
-   <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
+   <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">2</value>
   </valuemap>
  </data>
  <data>

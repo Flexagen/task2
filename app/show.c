@@ -94,15 +94,15 @@ static void show_line(int index, const char *contents, int cursor, const void *d
         {
             if (i == cursor)
             {
-                printf("|");
+                fprintf(stdout, "|");
             }
             if (i <= data_len)
             {
-                printf("%c", contents[i]);
+                fprintf(stdout,"%c", contents[i]);
             }
             else if (i < len)
             { 
-                printf(" ");
+                fprintf(stdout," ");
             }
         }
     }
