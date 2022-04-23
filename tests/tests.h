@@ -5,7 +5,7 @@
 #include <string>
 #include <fstream>
 
-char* filename = "../input/input.txt";
+char* filename = "input.txt";
 
 extern "C"{
 #include "text.h"
