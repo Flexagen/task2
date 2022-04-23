@@ -13,7 +13,8 @@ SOURCES += editor.c \
     process_forward.c \
     remove_all.c \
     rle.c \
-    cp.c
+    cp.c \
+    swtfs.c
 
 
 HEADERS += \

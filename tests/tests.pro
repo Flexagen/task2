@@ -27,6 +27,7 @@ SOURCES += main.cpp \
     ../app/load.c \
     ../app/rle.c \
     ../app/cp.c \
+    ../app/swtfs.c\
     ../app/save.c \
     ../app/process_forward.c \
     ../app/append_line.c \
