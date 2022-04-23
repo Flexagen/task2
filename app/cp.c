@@ -9,8 +9,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include "common.h"
-#include "text/text.h"
-#include "text/_text.h"
+#include "text.h"
+#include "_text.h"
 
 void cp(text txt)
 {

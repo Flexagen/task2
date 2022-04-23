@@ -18,8 +18,8 @@ DEFINES += INPUTDIR=\\\"$$PWD/input/\\\"
 
 HEADERS += tests.h \
         ../app/common.h \
-        ../app/text/text.h \
-        ../app/text/_text.h
+        ../app/text.h \
+        ../app/_text.h
 
 SOURCES += main.cpp \
     ../app/move_cursor.c \
@@ -28,10 +28,10 @@ SOURCES += main.cpp \
     ../app/rle.c \
     ../app/cp.c \
     ../app/save.c \
-    ../app/text/process_forward.c \
-    ../app/text/append_line.c \
-    ../app/text/create_text.c \
-    ../app/text/remove_all.c
+    ../app/process_forward.c \
+    ../app/append_line.c \
+    ../app/create_text.c \
+    ../app/remove_all.c
 
 
 INCLUDEPATH += ../app
