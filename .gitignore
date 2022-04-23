@@ -1,8 +1,6 @@
 *.user
 build
-app/app
-*Makefile
+Makefile
 *.o
 *.gcda
 *.gcno
-tests/tests
