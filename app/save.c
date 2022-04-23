@@ -15,7 +15,7 @@ void save(text txt, char *filename)
 
 	if ((f = fopen(filename, "w")) == NULL)
 	{
-		printf("File %s can't be opened\n", filename);
+        fprintf(stderr, "File %s can't be opened\n", filename);
 		return;
 	}
 
@@ -28,6 +28,6 @@ void save(text txt, char *filename)
         fprintf(f, "%s\n", current->contents);
 		current = current->next;
 	} while(current);
-
+    fprintf(stdout, "Save file successeed!\n");
 	fclose (f);
 }
