@@ -4,7 +4,9 @@
 #include <gmock/gmock-matchers.h>
 #include <string>
 #include <fstream>
-#include <dirent.h>
+
+char* filename = "input.txt";
+
 extern "C"{
 #include "text.h"
 #include "_text.h"
@@ -22,12 +24,11 @@ TEST(Load_file, wrong_file_name)
 
     EXPECT_EQ(output, "The file wrong_name.txt cannot be opened\n");
 }
-
 TEST(Load_file, default_load)
 {
     text txt = create_text();
     testing::internal::CaptureStdout();
-    load(txt, "../tests/input/input.txt");
+    load(txt, "../input/input.txt");
     show(txt);
     std::string output = testing::internal::GetCapturedStdout();
 
@@ -57,7 +58,7 @@ TEST (Save_file, test1)
 TEST(Cursor_position, test1)
 {
     text txt = create_text();
-    load(txt, "input.txt");
+    load(txt, filename);
     move_cursor(txt, -10, 0);
     EXPECT_EQ(txt->cursor->position, 0);
     int k = 1;
