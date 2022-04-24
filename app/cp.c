@@ -36,7 +36,7 @@ void cp(text txt)
 	       strcpy(current->previous->contents, s);
            }
            else {
-	       fprintf(stdout, "Can't move a row.\n");
+           fprintf(stderr, "Can't move a row.\n");
                Flag_error = 1;
 	       break;
 	   }
