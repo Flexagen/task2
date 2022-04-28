@@ -5,12 +5,11 @@
 #include <string>
 #include <fstream>
 
-char* filename = "input.txt";
-
+char *filename = "input.txt";
 extern "C"{
-#include "text.h"
-#include "_text.h"
-#include "common.h"
+#include "../app/text/text.h"
+#include "../app/text/_text.h"
+#include "../app/common.h"
 }
 
 /*
