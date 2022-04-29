@@ -14,7 +14,7 @@ QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
 QMAKE_CFLAGS += -fprofile-arcs -ftest-coverage
 LIBS += -lgcov
 
-DEFINES += INPUTDIR=\\\"$$PWD/input/\\\"
+DEFINES += INPUTDIR=\\\"$$PWD/../input/\\\"
 
 HEADERS += tests.h \
         ../app/common.h \
@@ -37,5 +37,4 @@ SOURCES += main.cpp \
 
 INCLUDEPATH += ../app
 
-DISTFILES += \
-    input/input.txt
+DISTFILES = ../input/input.txt

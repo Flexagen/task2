@@ -5,12 +5,16 @@
 #include <string>
 #include <fstream>
 
-char* filename = "input.txt";
+char *input_file = INPUTDIR "/input.txt";
 
 extern "C"{
 #include "text.h"
 #include "_text.h"
 #include "common.h"
+}
+
+TEST(t1, t){
+EXPECT_EQ(input_file, "../input/input.txt");
 }
 
 /*
@@ -202,16 +206,11 @@ TEST(Show_text, test)
     remove_all(txt);
 }
 
-/*
- * Тест пока что не работает в GIT Actions:
- *           не может найти файл input.txt.
- * Локально тест работает при отключении теневой сборки.
- *
 TEST(Load_file, default_load)
 {
     text txt = create_text();
     testing::internal::CaptureStdout();
-    load(txt, filename);
+    load(txt, input_file);
     show(txt);
     std::string output = testing::internal::GetCapturedStdout();
 
@@ -227,7 +226,7 @@ TEST(Load_file, default_load)
     content += "\n";
     EXPECT_EQ(output, content);
 }
-*/
+
 
 TEST(Load_file, wrong_file_name)
 {
@@ -400,5 +399,6 @@ TEST(Cursor_position, mistake_pos_argument_large)
 /*
  * Тесты базовых функций (append_line, create_text, process_forward_remove_all):
  */
+
 
 #endif // EQTEST_H
