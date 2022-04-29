@@ -10,8 +10,8 @@ const char *input_file = INPUTDIR "/input.txt";
 const char *filename = "input.txt";
 
 extern "C"{
-#include "../app/text/text.h"
-#include "../app/text/_text.h"
+#include "../app/text.h"
+#include "../app/_text.h"
 #include "../app/common.h"
 }
 
