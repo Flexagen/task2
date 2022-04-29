@@ -5,12 +5,16 @@
 #include <string>
 #include <fstream>
 
+<<<<<<< HEAD
 char *input_file = INPUTDIR "/input.txt";
 
+=======
+char *filename = "input.txt";
+>>>>>>> 4464965e598cfcf55cce50462223e10fa00ce4f9
 extern "C"{
-#include "text.h"
-#include "_text.h"
-#include "common.h"
+#include "../app/text/text.h"
+#include "../app/text/_text.h"
+#include "../app/common.h"
 }
 
 TEST(t1, t){

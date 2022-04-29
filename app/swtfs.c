@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include "common.h"
-#include "text.h"
-#include "_text.h"
+#include "text/text.h"
+#include "text/_text.h"
 
 static void showtrimmedfromstart (int index, const char *contents, int cursor,const void *data);
 
