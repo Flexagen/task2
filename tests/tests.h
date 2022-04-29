@@ -5,27 +5,21 @@
 #include <string>
 #include <fstream>
 
-<<<<<<< HEAD
-char *input_file = INPUTDIR "/input.txt";
+const char *input_file = INPUTDIR "/input.txt";
 
-=======
-char *filename = "input.txt";
->>>>>>> 4464965e598cfcf55cce50462223e10fa00ce4f9
+const char *filename = "input.txt";
+
 extern "C"{
 #include "../app/text/text.h"
 #include "../app/text/_text.h"
 #include "../app/common.h"
 }
 
-TEST(t1, t){
-EXPECT_EQ(input_file, "../input/input.txt");
-}
-
 /*
  * Тесты функций из индивидуальных заданий:
  */
 
-TEST(Showtrimmedfromstart, test)
+TEST(Showtrimmedfromstart, posotive_test)
 {
     /*
      * Отображение текста без ведущих символов табуляции.
@@ -55,6 +49,41 @@ TEST(Showtrimmedfromstart, test)
     EXPECT_EQ(output, content);
 }
 
+TEST(Showtrimmedfromstart, emply_txt)
+{
+    /*
+     * Отображение текста без ведущих символов табуляции.
+     * Негативный тест.
+     * Входные данные - 1) строка, состоящая только из одних пробелов
+     *                  2) единственный символ пробела
+     */
+
+    text txt = create_text();
+    append_line(txt,"                   ");
+    testing::internal::CaptureStdout();
+    show_without_tabulation(txt);
+    std::string output = testing::internal::GetCapturedStdout();
+
+    EXPECT_EQ(output, "|\n");
+}
+
+TEST(Showtrimmedfromstart, emply_data)
+{
+    /*
+     * Отображение текста без ведущих символов табуляции.
+     * Негативный тест.
+     * Входные данные - пустая структура txt, NULL.
+     */
+
+    text txt = create_text();
+    testing::internal::CaptureStderr();
+    show_without_tabulation(txt);
+    show_without_tabulation(NULL);
+    std::string output = testing::internal::GetCapturedStderr();
+
+    EXPECT_EQ(output, "There are already no any lines in the text!\nThere are already no any lines in the text!\n");
+}
+
 TEST(rle, positive_test)
 {
     /*
@@ -82,7 +111,7 @@ TEST(rle, emply_data)
     /*
      * Удаление всех символов в строке после курсора.
      * Негативный тест.
-     * Передаваемые параметры - пустая структура txt и NULL.
+     * Передаваемые параметры - пустая структура txt, NULL.
      */
 
     text txt = create_text();
@@ -91,11 +120,38 @@ TEST(rle, emply_data)
     testing::internal::CaptureStderr();
     rle(NULL);
     rle(txt);
-
     //получаем результат
     std::string output = testing::internal::GetCapturedStderr();
     EXPECT_EQ(output, "There are already no any lines in the text!\nThere are already no any lines in the text!\n");
     remove_all(txt);
+}
+
+TEST(rle, cursor_in_firs_line)
+{
+    /*
+     * Удаление всех символов в строке после курсора.
+     * Негативный тест.
+     * Курсор находится в самом начале строки.
+     */
+
+    text txt = create_text();
+    testing::internal::CaptureStdout();
+    load(txt, input_file);
+    rle(txt);
+    show(txt);
+    std::string output = testing::internal::GetCapturedStdout();
+
+    // читаем ожидаемые строки из файла input.txt
+    char *filename = (char *)malloc(sizeof(char) * 1024);
+    sprintf(filename, "%s/input.txt", INPUTDIR);
+    std::ifstream f(filename);
+    free(filename);
+    std::string content;
+    content.assign( (std::istreambuf_iterator<char>(f) ),
+                    (std::istreambuf_iterator<char>()    ) );
+    content[content.length()-1] = '|';
+    content += "\n";
+    EXPECT_EQ(output, "RLE successed!\n"+content);
 }
 
 TEST(cp, positive_test)
@@ -201,17 +257,41 @@ TEST(Show_text, test)
 
     // подключаем захват вывода
     testing::internal::CaptureStdout();
-    move_cursor(txt, 0, 0);
     show(txt);
 
     //получаем результат
     std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(output, "|Example text in line 1.\n");
+    EXPECT_EQ(output, "Example text in line 1.|\n");
     remove_all(txt);
 }
 
+TEST(Show_text, emply_data)
+{
+    /*
+     * Отображение текста.
+     * Негативный тест.
+     * Входные данные - пустая структура txt и NULL.
+     */
+
+    text txt = create_text();
+
+    // подключаем захват вывода
+    testing::internal::CaptureStderr();
+    show(txt);
+    show(NULL);
+
+    //получаем результат
+    std::string output = testing::internal::GetCapturedStderr();
+    EXPECT_EQ(output, "There are already no any lines in the text!\nThere are already no any lines in the text!\n");
+    remove_all(txt);
+}
 TEST(Load_file, default_load)
 {
+    /*
+     * Загрузка текста из файла.
+     * Позитивный тест.
+     */
+
     text txt = create_text();
     testing::internal::CaptureStdout();
     load(txt, input_file);

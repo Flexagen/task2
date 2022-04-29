@@ -24,7 +24,7 @@ void show_without_tabulation(text txt);
 /**
  * Загружает содержимое указанного файла
  */
-void load(text txt, char *filename);
+void load(text txt, const char *filename);
 
 void save(text txt, char *filename);
 
