@@ -82,6 +82,60 @@ TEST(Showtrimmedfromstart, emply_data)
     std::string output = testing::internal::GetCapturedStderr();
 
     EXPECT_EQ(output, "There are already no any lines in the text!\nThere are already no any lines in the text!\n");
+}  
+
+TEST(Showtrimmedfromstart, without_tabulation)
+{
+    /*
+     * Отображение текста без ведущих символов табуляции.
+     * Негативный тест.
+     * Входные данные - обычный текст, без ведущих пробелов/табов и прочего.
+     */
+
+
+    text txt = create_text();
+    append_line(txt,"Hello World");
+    append_line(txt, "Hello");
+    append_line(txt, "World");
+    append_line(txt, "World Hello");
+
+    testing::internal::CaptureStdout();
+    show_without_tabulation(txt);
+    std::string output = testing::internal::GetCapturedStdout();
+
+    // читаем ожидаемые строки из файла input.txt
+    char *filename = (char *)malloc(sizeof(char) * 1024);
+    sprintf(filename, "%s/input.txt", INPUTDIR);
+    std::ifstream f(filename);
+    free(filename);
+    std::string content;
+    content.assign( (std::istreambuf_iterator<char>(f) ),
+                    (std::istreambuf_iterator<char>()    ) );
+    content[content.length()-1] = '|';
+    content += "\n";
+    EXPECT_EQ(output, content);
+}
+
+TEST(Showtrimmedfromstart, cursor_on_tab)
+{
+    /*
+     * Отображение текста без ведущих символов табуляции.
+     * Негативный тест.
+     * Входные данные - строки, состоящие из пробелов и курсор, поставленный на них.
+     */
+
+    text txt = create_text();
+    append_line(txt,"     ");
+
+    testing::internal::CaptureStdout();
+    show_without_tabulation(txt);
+    move_cursor(txt, 0, 0);
+    show_without_tabulation(txt);
+    move_cursor(txt, 0, 2);
+    show_without_tabulation(txt);
+    std::string output = testing::internal::GetCapturedStdout();
+
+    EXPECT_EQ(output, "|\n|\n|\n");
 }
 
 TEST(rle, positive_test)
@@ -477,6 +531,36 @@ TEST(Cursor_position, mistake_pos_argument_large)
     append_line(txt, "Example text in line 3.");
     move_cursor(txt, 1, 100);
     EXPECT_EQ(txt->cursor->position, 0);
+    remove_all(txt);
+}
+
+TEST(Cursor_position, tabulation_data)
+{
+    /*
+     * Тест перемещения курсора.
+     * Негативный тест.
+     * Попытка поставить курсор перед несуществующим символом (под очень польшим номером).
+     */
+
+    text txt = create_text();
+    append_line(txt, "    ");
+    append_line(txt, "    ");
+    testing::internal::CaptureStdout();
+    move_cursor(txt, 1, 0);
+    show(txt);
+    move_cursor(txt, 1, 2);
+    show(txt);
+    move_cursor(txt, 1, 4);
+
+    move_cursor(txt, 2, 0);
+    show(txt);
+    move_cursor(txt, 2, 2);
+    show(txt);
+    move_cursor(txt, 2, 4);
+    show(txt);
+    std::string output = testing::internal::GetCapturedStdout();
+
+    EXPECT_EQ(output, "|    \n    \n  |  \n    \n    \n|    \n    \n  |  \n    \n    |\n");
     remove_all(txt);
 }
 
