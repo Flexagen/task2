@@ -62,9 +62,13 @@ TEST(Showtrimmedfromstart, emply_txt)
     append_line(txt,"                   ");
     testing::internal::CaptureStdout();
     show_without_tabulation(txt);
+    remove_all(txt);
+    append_line(txt, " ");
+    show_without_tabulation(txt);
     std::string output = testing::internal::GetCapturedStdout();
 
-    EXPECT_EQ(output, "|\n");
+    EXPECT_EQ(output, "|\n|\n");
+    remove_all(txt);
 }
 
 TEST(Showtrimmedfromstart, emply_data)
@@ -82,6 +86,7 @@ TEST(Showtrimmedfromstart, emply_data)
     std::string output = testing::internal::GetCapturedStderr();
 
     EXPECT_EQ(output, "There are already no any lines in the text!\nThere are already no any lines in the text!\n");
+    remove_all(txt);
 }  
 
 TEST(Showtrimmedfromstart, without_tabulation)
@@ -114,6 +119,7 @@ TEST(Showtrimmedfromstart, without_tabulation)
     content[content.length()-1] = '|';
     content += "\n";
     EXPECT_EQ(output, content);
+    remove_all(txt);
 }
 
 TEST(Showtrimmedfromstart, cursor_on_tab)
@@ -136,6 +142,7 @@ TEST(Showtrimmedfromstart, cursor_on_tab)
     std::string output = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ(output, "|\n|\n|\n");
+    remove_all(txt);
 }
 
 TEST(rle, positive_test)
@@ -206,6 +213,7 @@ TEST(rle, cursor_in_firs_line)
     content[content.length()-1] = '|';
     content += "\n";
     EXPECT_EQ(output, "RLE successed!\n"+content);
+    remove_all(txt);
 }
 
 TEST(cp, positive_test)
@@ -224,6 +232,7 @@ TEST(cp, positive_test)
 
     std::string output = testing::internal::GetCapturedStdout();
     EXPECT_EQ(output, "Example text in line 2.\nExample text in line 1.|\n");
+    remove_all(txt);
 }
 
 TEST(cp, emply_data)
@@ -241,6 +250,7 @@ TEST(cp, emply_data)
     cp(txt);
     std::string output = testing::internal::GetCapturedStderr();
     EXPECT_EQ(output, "There are already no any lines in the text!\nThere are already no any lines in the text!\n");
+    remove_all(txt);
 }
 
 TEST(cp, one_line_in_text)
@@ -259,6 +269,7 @@ TEST(cp, one_line_in_text)
 
     std::string output = testing::internal::GetCapturedStderr();
     EXPECT_EQ(output, "Can't move a row.\n");
+    remove_all(txt);
 }
 
 TEST(cp, all_position_cursor_to_cp)
@@ -293,6 +304,7 @@ TEST(cp, all_position_cursor_to_cp)
 
     output = testing::internal::GetCapturedStderr();
     EXPECT_EQ(output, "Can't move a row.\n");
+    remove_all(txt);
 }
 
 /*
@@ -363,6 +375,7 @@ TEST(Load_file, default_load)
     content[content.length()-1] = '|';
     content += "\n";
     EXPECT_EQ(output, content);
+    remove_all(txt);
 }
 
 
@@ -384,6 +397,7 @@ TEST(Load_file, wrong_file_name)
     //получаем результат
     std::string output = testing::internal::GetCapturedStdout();
     EXPECT_EQ(output, "The file wrong_name.txt cannot be opened\n");
+    remove_all(txt);
 }
 
 TEST (Save_file, default_save)
@@ -402,6 +416,7 @@ TEST (Save_file, default_save)
 
     std::string output = testing::internal::GetCapturedStdout();
     EXPECT_EQ(output, "Save file successeed!\n");
+    remove_all(txt);
 }
 
 TEST (Save_file, emply_txt_structure)
@@ -567,6 +582,5 @@ TEST(Cursor_position, tabulation_data)
 /*
  * Тесты базовых функций (append_line, create_text, process_forward_remove_all):
  */
-
 
 #endif // EQTEST_H
